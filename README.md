@@ -85,3 +85,5 @@ This will create a new layer where each point has information about the bays it 
 - These selected points are those that fall outside any designated parking bay.
 
 3. Export the Selected Points as a table to be included in the analysis.
+
+Contact me on davidwmicallef@gmail.com for any assistance! 
