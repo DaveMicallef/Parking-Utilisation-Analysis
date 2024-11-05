@@ -66,4 +66,22 @@ def calc_capacity(parking_type, geo_area, description):
   ```
 5. Spatial Join the Parking Bays layer to the Zones/Streets layer
 6. Batch Spatial Join with Parking Bays layer as target features and the multiple occupancy layers as Join features. Use _Match Option = Completely Contains_
-7. Batch export the layers as .csv files and run the analysis notebook making the necessary amendments 
+7. Batch export the layers as .csv files and run the analysis notebook making the necessary amendments
+
+### Illegal parking
+To include occurances of illegal parking, follow the steps: 
+1. Run the Spatial Join Tool:
+- Go to Analysis > Tools > Spatial Join.
+- Select your points layer as the Target Feature and your bays layer as the Join Feature.
+- Choose the Join Operation as One to One or One to Many based on your needs.
+- Set the Match Option to INTERSECT.
+
+This will create a new layer where each point has information about the bays it intersects with.
+
+2. Filter Out Points Outside of Bays:
+- In the resulting Spatial Join layer, points that do not intersect with any bay will have null values in the attributes related to the bays.
+- Open the attribute table of the Spatial Join result.
+- Use the Select by Attributes tool to select all points where the bay-related attribute is null.
+- These selected points are those that fall outside any designated parking bay.
+
+3. Export the Selected Points as a table to be included in the analysis.
